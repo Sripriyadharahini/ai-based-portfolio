@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Sri Priyadharshini · AI Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ===== RESET & GLOBAL ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      }
+
+      body {
+        background: radial-gradient(circle at 30% 10%, #0f2027, #03080a 90%);
+        color: #e0f0ff;
+        scroll-behavior: smooth;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      /* ===== HEADER / HERO ===== */
+      header {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 5%;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 8vw, 4rem);
+        font-weight: 700;
+        color: #00f7ff;
+        text-shadow: 0 0 20px #00f7ff, 0 0 40px #0088ff;
+        margin-bottom: 3rem;
+        letter-spacing: 2px;
+      }
+
+      /* ===== NAVIGATION CARDS ===== */
+      .nav-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .nav-card {
+        background: rgba(10, 20, 30, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(0, 247, 255, 0.3);
+        padding: 2rem 1rem;
+        border-radius: 24px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+        box-shadow: 0 0 25px rgba(0, 247, 255, 0.2);
+        animation: floatIn 0.8s ease backwards;
+      }
+
+      .nav-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .nav-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .nav-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .nav-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      .nav-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        border-color: #00f7ff;
+        box-shadow: 0 0 45px #00f7ff;
+        background: rgba(0, 247, 255, 0.1);
+      }
+
+      .nav-card img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1rem;
+        filter: drop-shadow(0 0 8px #00f7ff);
+        transition: 0.3s;
+      }
+
+      .nav-card:hover img {
+        filter: drop-shadow(0 0 16px #ffffff);
+      }
+
+      .nav-card p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      /* ===== SECTIONS ===== */
+      section {
+        padding: 6rem 8%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h2 {
+        font-size: 2.8rem;
+        margin-bottom: 2rem;
+        color: #00f7ff;
+        text-shadow: 0 0 12px #00f7ff;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .card {
+        background: rgba(0, 10, 20, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 247, 255, 0.25);
+        padding: 2rem;
+        border-radius: 28px;
+        margin: 1.5rem 0;
+        box-shadow: 0 0 30px rgba(0, 247, 255, 0.15);
+        transition: 0.4s;
+      }
+
+      .card:hover {
+        border-color: #00f7ff;
+        box-shadow: 0 0 45px #00f7ff;
+        transform: translateY(-6px);
+      }
+
+      .card p {
+        font-size: 1.2rem;
+        margin: 0.8rem 0;
+      }
+
+      .card h3 {
+        font-size: 1.8rem;
+        color: #00f7ff;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-link {
+        color: #00f7ff;
+        text-decoration: none;
+        border-bottom: 1px dashed #00f7ff;
+        transition: 0.3s;
+      }
+
+      .contact-link:hover {
+        text-shadow: 0 0 8px #00f7ff;
+        border-bottom-style: solid;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid #00f7ff33;
+        font-size: 1rem;
+        color: #aaccff;
+      }
+
+      /* ===== SKILL BARS ===== */
+      .skill-card {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .skill-bar {
+        width: 100%;
+        height: 12px;
+        background: rgba(0, 247, 255, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-top: 0.5rem;
+        box-shadow: 0 0 8px #00f7ff55 inset;
+      }
+
+      .skill-fill {
+        height: 100%;
+        background: #00f7ff;
+        box-shadow: 0 0 12px #00f7ff;
+        border-radius: 12px;
+        width: 0%;
+        transition: width 1.5s ease-in-out;
+      }
+
+      /* ===== REMOVED PERCENTAGE POPUP (::after) AS REQUESTED ===== */
+      /* .skill-card::after was removed – no percentage numbers on hover */
+
+      /* ===== IDENTITY PHOTO WITH HOVER DETAILS (LEFT-RIGHT) ===== */
+      .identity-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .identity-photo {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 28px;
+        border: 3px solid #00f7ff;
+        box-shadow: 0 0 30px #00f7ff;
+        transition: 0.4s ease;
+        cursor: pointer;
+        flex-shrink: 0;
+        background: #0a1a24; /* fallback while loading */
+      }
+
+      .identity-details {
+        flex: 1;
+        background: rgba(0, 20, 30, 0.8);
+        backdrop-filter: blur(8px);
+        border-radius: 28px;
+        padding: 2rem;
+        border: 2px solid #00f7ff;
+        box-shadow: 0 0 40px #00f7ff;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .identity-container:hover .identity-details {
+        opacity: 1;
+      }
+
+      .identity-details p {
+        margin: 0.8rem 0;
+        font-size: 1.2rem;
+      }
+
+      .identity-details strong {
+        color: #00f7ff;
+      }
+
+      #about .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* ===== PROJECT ANIMATIONS ===== */
+      .animation-container {
+        position: relative;
+        height: 100px;
+        margin-top: 1.5rem;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .trolley-man {
+        position: absolute;
+        bottom: 10px;
+        left: -60px;
+        font-size: 50px;
+        color: #00f7ff;
+        filter: drop-shadow(0 0 10px #00f7ff);
+        opacity: 0;
+        transition: opacity 0.3s;
+        width: 60px;
+        text-align: center;
+      }
+
+      #price-comparison-card:hover .trolley-man {
+        opacity: 1;
+        animation: moveTrolley 2.5s linear infinite;
+      }
+
+      @keyframes moveTrolley {
+        0% {
+          left: -60px;
+        }
+        50% {
+          left: calc(100% - 60px);
+        }
+        100% {
+          left: -60px;
+        }
+      }
+
+      .man-photo {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        font-size: 50px;
+        color: #00f7ff;
+        filter: drop-shadow(0 0 10px #00f7ff);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      #plant-disease-card:hover .man-photo {
+        opacity: 1;
+        animation: clickPhoto 1.5s infinite ease-in-out;
+      }
+
+      @keyframes clickPhoto {
+        0%,
+        100% {
+          transform: translateX(-50%) scale(0.8) rotate(0deg);
+        }
+        50% {
+          transform: translateX(-50%) scale(0.8) rotate(-12deg);
+        }
+      }
+
+      /* ===== MEDIA QUERIES ===== */
+      @media (max-width: 768px) {
+        h2 {
+          font-size: 2rem;
+        }
+        .nav-cards {
+          gap: 1rem;
+        }
+        .nav-card {
+          padding: 1.5rem 0.5rem;
+        }
+        .nav-card img {
+          width: 48px;
+          height: 48px;
+        }
+        .card {
+          padding: 1.5rem;
+        }
+        .card h3 {
+          font-size: 1.5rem;
+        }
+        .identity-container {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+        }
+        .identity-photo {
+          width: 220px;
+          height: 220px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        section {
+          padding: 5rem 5%;
+        }
+        .nav-card p {
+          font-size: 1rem;
+        }
+        .identity-photo {
+          width: 180px;
+          height: 180px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sri Priyadharshini R</h1>
+      <h2>Software Developer</h2>
+      <div class="nav-cards">
+        <div
+          class="nav-card"
+          onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+            alt="Identity"
+            loading="lazy"
+          />
+          <p>Identity</p>
+        </div>
+        <div
+          class="nav-card"
+          onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png"
+            alt="Modules"
+            loading="lazy"
+          />
+          <p>Core Modules</p>
+        </div>
+        <div
+          class="nav-card"
+          onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"
+            alt="Clusters"
+            loading="lazy"
+          />
+          <p>Memory Clusters</p>
+        </div>
+        <div
+          class="nav-card"
+          onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+            alt="Connect"
+            loading="lazy"
+          />
+          <p>Connect</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>👤 Identity</h2>
+      <div class="card">
+        <div class="identity-container">
+          <!-- Replace with your actual image file -->
+          <img
+            src="WhatsApp Image 2026-02-24 at 3.14.03 PM.jpeg"
+            alt="Sri Priyadharshini"
+            class="identity-photo"
+            title="Hover to see details →"
+          />
+          <div class="identity-details">
+            <p><strong>Name:</strong> Sri Priyadharshini</p>
+            <p>
+              <strong>Education:</strong> B.E. Computer Science Engineering
+              (2022–2026)
+            </p>
+            <p><strong>CGPA:</strong> 7.7</p>
+            <p>
+              <strong>Mission:</strong> I am a passionate and curious final-year
+              student with a strong interest in Artificial Intelligence, web
+              development, and emerging technologies. I enjoy building
+              innovative projects like AI-based applications and creative
+              portfolio designs. I am always eager to learn new tools, improve
+              my technical skills, and take on challenging opportunities that
+              help me grow both personally and professionally.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>⚙ Core Modules</h2>
+      <!-- data-level attributes remain for bar width, but hover percentage is removed (no ::after) -->
+      <div class="card skill-card" data-level="90">
+        <p>HTML / CSS / JavaScript</p>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+
+      <div class="card skill-card" data-level="80">
+        <p>Java (OOPs)</p>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+
+      <div class="card skill-card" data-level="75">
+        <p>C / C++</p>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+
+      <div class="card skill-card" data-level="85">
+        <p>DBMS</p>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+
+      <div class="card skill-card" data-level="95">
+        <p>MS Word, Excel, PowerPoint</p>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>🗄️ Memory Clusters</h2>
+
+      <div class="card" id="price-comparison-card">
+        <h3>🛒 Price Comparison System</h3>
+        <p>
+          Developed a Python-based price comparison system that collects and
+          compares product prices from multiple online shopping platforms. The
+          application helps users identify the best available deals, improving
+          cost-effective decision-making.
+        </p>
+        <div class="animation-container">
+          <i class="fas fa-cart-shopping trolley-man"></i>
+        </div>
+      </div>
+
+      <div class="card" id="plant-disease-card">
+        <h3>🌿 Plant Disease Prediction</h3>
+        <p>
+          Plant Disease Prediction is an AI-based system that helps identify
+          plant diseases using image processing and machine learning techniques.
+          In this project, users (such as farmers) upload a photo of a plant
+          leaf, and the system analyzes it to detect the type of disease.
+        </p>
+        <div class="animation-container">
+          <i class="fas fa-camera-retro man-photo"></i>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>📡 Connect</h2>
+      <div class="card">
+        <p>
+          📩
+          <a href="mailto:sripriyadharshinisri@gmail.com" class="contact-link"
+            >sripriyadharshinisri@gmail.com</a
+          >
+        </p>
+        <p>📍 Salem, Tamil Nadu</p>
+        <p>
+          🔗
+          <a
+            href="http://www.linkedin.com/in/sri-priyadharshini-45781425b"
+            target="_blank"
+            rel="noopener"
+            class="contact-link"
+            >LinkedIn: sri-priyadharshini-45781425b</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Sri Priyadharshini | All Systems Operational</p>
+    </footer>
+
+    <script>
+      (function () {
+        window.addEventListener("load", function () {
+          document.querySelectorAll(".skill-card").forEach((card) => {
+            const fill = card.querySelector(".skill-fill");
+            const level = card.getAttribute("data-level");
+            if (fill && level) {
+              fill.style.width = level + "%";
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
