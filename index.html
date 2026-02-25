@@ -13,7 +13,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <style>
-      /* ===== RESET & GLOBAL ===== */
+      /* ===== RESET & GLOBAL – now with unique purple/violet tones ===== */
       * {
         margin: 0;
         padding: 0;
@@ -22,8 +22,9 @@
       }
 
       body {
-        background: radial-gradient(circle at 30% 10%, #0f2027, #03080a 90%);
-        color: #e0f0ff;
+        /* deep purple radial gradient */
+        background: radial-gradient(circle at 30% 10%, #2b1a3a, #0c0720 90%);
+        color: #f0e6ff;
         scroll-behavior: smooth;
         line-height: 1.6;
         min-height: 100vh;
@@ -43,8 +44,8 @@
       h1 {
         font-size: clamp(2.2rem, 8vw, 4rem);
         font-weight: 700;
-        color: #00f7ff;
-        text-shadow: 0 0 20px #00f7ff, 0 0 40px #0088ff;
+        color: #d9b0ff; /* soft lavender */
+        text-shadow: 0 0 20px #b266ff, 0 0 40px #8a4dff;
         margin-bottom: 3rem;
         letter-spacing: 2px;
       }
@@ -60,15 +61,15 @@
       }
 
       .nav-card {
-        background: rgba(10, 20, 30, 0.7);
+        background: rgba(18, 10, 30, 0.7);
         backdrop-filter: blur(8px);
-        border: 1px solid rgba(0, 247, 255, 0.3);
+        border: 1px solid rgba(178, 102, 255, 0.4);
         padding: 2rem 1rem;
         border-radius: 24px;
         text-align: center;
         cursor: pointer;
         transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
-        box-shadow: 0 0 25px rgba(0, 247, 255, 0.2);
+        box-shadow: 0 0 25px rgba(178, 102, 255, 0.3);
         animation: floatIn 0.8s ease backwards;
       }
 
@@ -87,21 +88,21 @@
 
       .nav-card:hover {
         transform: translateY(-12px) scale(1.02);
-        border-color: #00f7ff;
-        box-shadow: 0 0 45px #00f7ff;
-        background: rgba(0, 247, 255, 0.1);
+        border-color: #c88aff;
+        box-shadow: 0 0 45px #b266ff;
+        background: rgba(178, 102, 255, 0.15);
       }
 
       .nav-card img {
         width: 64px;
         height: 64px;
         margin-bottom: 1rem;
-        filter: drop-shadow(0 0 8px #00f7ff);
+        filter: drop-shadow(0 0 8px #b266ff);
         transition: 0.3s;
       }
 
       .nav-card:hover img {
-        filter: drop-shadow(0 0 16px #ffffff);
+        filter: drop-shadow(0 0 16px #f0e6ff);
       }
 
       .nav-card p {
@@ -122,27 +123,27 @@
       h2 {
         font-size: 2.8rem;
         margin-bottom: 2rem;
-        color: #00f7ff;
-        text-shadow: 0 0 12px #00f7ff;
+        color: #d9b0ff;
+        text-shadow: 0 0 12px #b266ff;
         display: flex;
         align-items: center;
         gap: 12px;
       }
 
       .card {
-        background: rgba(0, 10, 20, 0.7);
+        background: rgba(8, 4, 18, 0.7);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(0, 247, 255, 0.25);
+        border: 1px solid rgba(178, 102, 255, 0.3);
         padding: 2rem;
         border-radius: 28px;
         margin: 1.5rem 0;
-        box-shadow: 0 0 30px rgba(0, 247, 255, 0.15);
+        box-shadow: 0 0 30px rgba(178, 102, 255, 0.2);
         transition: 0.4s;
       }
 
       .card:hover {
-        border-color: #00f7ff;
-        box-shadow: 0 0 45px #00f7ff;
+        border-color: #b266ff;
+        box-shadow: 0 0 45px #b266ff;
         transform: translateY(-6px);
       }
 
@@ -153,61 +154,141 @@
 
       .card h3 {
         font-size: 1.8rem;
-        color: #00f7ff;
+        color: #d9b0ff;
         margin-bottom: 0.5rem;
       }
 
       .contact-link {
-        color: #00f7ff;
+        color: #b266ff;
         text-decoration: none;
-        border-bottom: 1px dashed #00f7ff;
+        border-bottom: 1px dashed #b266ff;
         transition: 0.3s;
       }
 
       .contact-link:hover {
-        text-shadow: 0 0 8px #00f7ff;
+        text-shadow: 0 0 8px #b266ff;
         border-bottom-style: solid;
       }
 
       footer {
         text-align: center;
         padding: 2rem;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(8px);
-        border-top: 1px solid #00f7ff33;
+        border-top: 1px solid #b266ff66;
         font-size: 1rem;
-        color: #aaccff;
+        color: #cbb2ff;
       }
 
       /* ===== SKILL BARS ===== */
       .skill-card {
         margin-bottom: 1.5rem;
-        position: relative;
+        position: relative; /* for absolute centering of explainer */
+        transition: 0.3s;
       }
 
       .skill-bar {
         width: 100%;
         height: 12px;
-        background: rgba(0, 247, 255, 0.2);
+        background: rgba(178, 102, 255, 0.2);
         border-radius: 12px;
         overflow: hidden;
         margin-top: 0.5rem;
-        box-shadow: 0 0 8px #00f7ff55 inset;
+        box-shadow: 0 0 8px #b266ff88 inset;
       }
 
       .skill-fill {
         height: 100%;
-        background: #00f7ff;
-        box-shadow: 0 0 12px #00f7ff;
+        background: #b266ff;
+        box-shadow: 0 0 12px #b266ff;
         border-radius: 12px;
         width: 0%;
         transition: width 1.5s ease-in-out;
       }
 
-      /* ===== REMOVED PERCENTAGE POPUP (::after) AS REQUESTED ===== */
-      /* .skill-card::after was removed – no percentage numbers on hover */
+      /* ===== CENTERED EXPLAINER (ANIMATED MAN ICON + TEXT) - SLOWER ANIMATIONS ===== */
+      .skill-explainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        min-width: 300px;
+        max-width: 90%;
+        background: rgba(26, 10, 40, 0.96);
+        backdrop-filter: blur(12px);
+        border: 2px solid #b266ff;
+        border-radius: 60px;
+        padding: 0.6rem 1.2rem 0.6rem 0.8rem;
+        box-shadow: 0 0 40px #b266ff, 0 0 15px #b266ff inset;
+        z-index: 30;
+        display: none; /* hidden by default */
+        align-items: center;
+        gap: 12px;
+        animation: slideInCenter 0.7s ease-out forwards;
+        pointer-events: none;
+      }
 
-      /* ===== IDENTITY PHOTO WITH HOVER DETAILS (LEFT-RIGHT) ===== */
+      .skill-card:hover .skill-explainer {
+        display: flex;
+      }
+
+      @keyframes slideInCenter {
+        0% {
+          transform: translate(calc(-50% - 80px), -50%);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(-50%, -50%);
+          opacity: 1;
+        }
+      }
+
+      .explainer-icon {
+        font-size: 2.8rem;
+        color: #ffcc99; /* warm amber contrasts purple */
+        filter: drop-shadow(0 0 12px #b266ff);
+        animation: readingTalk 3.5s infinite ease-in-out;
+        line-height: 1;
+        display: inline-block;
+      }
+
+      @keyframes readingTalk {
+        0% {
+          transform: scale(1) rotate(0deg);
+          filter: drop-shadow(0 0 12px #b266ff);
+        }
+        25% {
+          transform: scale(1.15) rotate(2deg);
+          filter: drop-shadow(0 0 22px #b266ff);
+        }
+        50% {
+          transform: scale(1.1) rotate(0deg);
+          filter: drop-shadow(0 0 18px #b266ff);
+        }
+        75% {
+          transform: scale(1.15) rotate(-2deg);
+          filter: drop-shadow(0 0 22px #b266ff);
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+          filter: drop-shadow(0 0 12px #b266ff);
+        }
+      }
+
+      .explainer-text {
+        font-size: 1rem;
+        color: #f0e6ff;
+        background: rgba(178, 102, 255, 0.15);
+        padding: 0.5rem 1rem;
+        border-radius: 40px;
+        border-left: 3px solid #b266ff;
+        flex: 1;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      /* ===== IDENTITY PHOTO WITH HOVER DETAILS ===== */
       .identity-container {
         display: flex;
         align-items: center;
@@ -223,22 +304,22 @@
         height: 280px;
         object-fit: cover;
         border-radius: 28px;
-        border: 3px solid #00f7ff;
-        box-shadow: 0 0 30px #00f7ff;
+        border: 3px solid #b266ff;
+        box-shadow: 0 0 30px #b266ff;
         transition: 0.4s ease;
         cursor: pointer;
         flex-shrink: 0;
-        background: #0a1a24; /* fallback while loading */
+        background: #1c1130;
       }
 
       .identity-details {
         flex: 1;
-        background: rgba(0, 20, 30, 0.8);
+        background: rgba(20, 8, 35, 0.8);
         backdrop-filter: blur(8px);
         border-radius: 28px;
         padding: 2rem;
-        border: 2px solid #00f7ff;
-        box-shadow: 0 0 40px #00f7ff;
+        border: 2px solid #b266ff;
+        box-shadow: 0 0 40px #b266ff;
         opacity: 0;
         transition: opacity 0.4s ease;
         pointer-events: none;
@@ -254,7 +335,7 @@
       }
 
       .identity-details strong {
-        color: #00f7ff;
+        color: #d9b0ff;
       }
 
       #about .card {
@@ -279,8 +360,8 @@
         bottom: 10px;
         left: -60px;
         font-size: 50px;
-        color: #00f7ff;
-        filter: drop-shadow(0 0 10px #00f7ff);
+        color: #b266ff;
+        filter: drop-shadow(0 0 10px #b266ff);
         opacity: 0;
         transition: opacity 0.3s;
         width: 60px;
@@ -289,7 +370,7 @@
 
       #price-comparison-card:hover .trolley-man {
         opacity: 1;
-        animation: moveTrolley 2.5s linear infinite;
+        animation: moveTrolley 7s linear infinite;
       }
 
       @keyframes moveTrolley {
@@ -310,8 +391,8 @@
         left: 50%;
         transform: translateX(-50%) scale(0.8);
         font-size: 50px;
-        color: #00f7ff;
-        filter: drop-shadow(0 0 10px #00f7ff);
+        color: #b266ff;
+        filter: drop-shadow(0 0 10px #b266ff);
         opacity: 0;
         transition: opacity 0.3s;
       }
@@ -360,6 +441,15 @@
         .identity-photo {
           width: 220px;
           height: 220px;
+        }
+        .skill-explainer {
+          min-width: 240px;
+        }
+        .explainer-icon {
+          font-size: 2.2rem;
+        }
+        .explainer-text {
+          font-size: 0.9rem;
         }
       }
 
@@ -433,7 +523,7 @@
       <h2>👤 Identity</h2>
       <div class="card">
         <div class="identity-container">
-          <!-- Replace with your actual image file -->
+          <!-- Your photo (identity section remains unchanged) -->
           <img
             src="WhatsApp Image 2026-02-24 at 3.14.03 PM.jpeg"
             alt="Sri Priyadharshini"
@@ -463,36 +553,40 @@
 
     <section id="skills">
       <h2>⚙ Core Modules</h2>
-      <!-- data-level attributes remain for bar width, but hover percentage is removed (no ::after) -->
-      <div class="card skill-card" data-level="90">
+      <!-- skill cards with sliding ANIMATED MAN ICON + explanation - slower animations -->
+      <div class="card skill-card" data-level="90" id="skill-html">
         <p>HTML / CSS / JavaScript</p>
         <div class="skill-bar"><div class="skill-fill"></div></div>
+        <div class="skill-explainer" id="explain-html"></div>
       </div>
 
-      <div class="card skill-card" data-level="80">
+      <div class="card skill-card" data-level="80" id="skill-java">
         <p>Java (OOPs)</p>
         <div class="skill-bar"><div class="skill-fill"></div></div>
+        <div class="skill-explainer" id="explain-java"></div>
       </div>
 
-      <div class="card skill-card" data-level="75">
+      <div class="card skill-card" data-level="75" id="skill-c">
         <p>C / C++</p>
         <div class="skill-bar"><div class="skill-fill"></div></div>
+        <div class="skill-explainer" id="explain-c"></div>
       </div>
 
-      <div class="card skill-card" data-level="85">
+      <div class="card skill-card" data-level="85" id="skill-dbms">
         <p>DBMS</p>
         <div class="skill-bar"><div class="skill-fill"></div></div>
+        <div class="skill-explainer" id="explain-dbms"></div>
       </div>
 
-      <div class="card skill-card" data-level="95">
+      <div class="card skill-card" data-level="95" id="skill-ms">
         <p>MS Word, Excel, PowerPoint</p>
         <div class="skill-bar"><div class="skill-fill"></div></div>
+        <div class="skill-explainer" id="explain-ms"></div>
       </div>
     </section>
 
     <section id="projects">
       <h2>🗄️ Memory Clusters</h2>
-
       <div class="card" id="price-comparison-card">
         <h3>🛒 Price Comparison System</h3>
         <p>
@@ -505,7 +599,6 @@
           <i class="fas fa-cart-shopping trolley-man"></i>
         </div>
       </div>
-
       <div class="card" id="plant-disease-card">
         <h3>🌿 Plant Disease Prediction</h3>
         <p>
@@ -549,6 +642,7 @@
 
     <script>
       (function () {
+        // ---- skill bars animation on load ----
         window.addEventListener("load", function () {
           document.querySelectorAll(".skill-card").forEach((card) => {
             const fill = card.querySelector(".skill-fill");
@@ -558,6 +652,37 @@
             }
           });
         });
+
+        // ---- per‑skill explainer: ANIMATED MAN ICON (same for all) + explanation ----
+        function setExplainer(explainerId, text) {
+          const container = document.getElementById(explainerId);
+          if (!container) return;
+          container.innerHTML = `
+          <div class="explainer-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="explainer-text">${text}</div>
+        `;
+        }
+
+        setExplainer(
+          "explain-html",
+          "🌟 HTML/CSS/JavaScript: I build responsive, dynamic interfaces with modern frameworks like React and vanilla JS. Strong foundation in semantic HTML, CSS animations, and ES6."
+        );
+        setExplainer(
+          "explain-java",
+          "☕ Java (OOPs): Solid grasp of object-oriented principles (inheritance, polymorphism, encapsulation). I design scalable console apps and understand design patterns."
+        );
+        setExplainer(
+          "explain-c",
+          "⚙️ C/C++: Systems-level programming, memory management, data structures & algorithms. Comfortable with pointers, STL, and performance optimization."
+        );
+        setExplainer(
+          "explain-dbms",
+          "🗄️ DBMS: Proficient in SQL, database design, normalization, transactions. Experience with MySQL and PostgreSQL for efficient data handling."
+        );
+        setExplainer(
+          "explain-ms",
+          "📊 MS Office: Excel wizard (pivot tables, VBA macros), Word expert for technical documentation, PowerPoint for crisp presentations."
+        );
       })();
     </script>
   </body>
